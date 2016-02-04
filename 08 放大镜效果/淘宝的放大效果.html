@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+*{ padding:0; margin:0; border:0;}
+.all{ width:350px; height:350px; background:url(images/xiaotu.jpg); border:1px solid #000; margin:100px; position:relative;}
+.all span{ width:150px; height:150px; background:orange; opacity:0.3; position:absolute; left:0; top:0; display:none;}
+.all .big{ width:400px; height:400px; background:url(images/datu.jpg) no-repeat 0 0; border:1px solid #000; position:absolute; left:370px; top:0; display:none;}
+</style>
+	<script src="../itcast.js"></script>
+	<script src="../itcast.animate2.js"></script>
+	<!--<script src="../jquery-1.7.js"></script>-->
+<script type="text/javascript">
+$(function(){
+	
+	$('.all').mouseover(function(e) {
+		$('.all span,.all .big').show()
+        //我们要让span跟着随表移动
+		//首先就要解决如何获取鼠标坐标值的问题；
+		
+		//我们需要一个大的事件源来获取鼠标的坐标值
+		$('.all').mousemove(function(e) {
+			
+				var x=e.pageX - $('.all')[0].offsetLeft - 75;
+				var y=e.pageY - $('.all')[0].offsetTop - 75;
+				
+				if(x<0){x=0}
+				if(y<0){y=0}
+				
+				if(x> $('.all').width() - 150){
+					x=$('.all').width() - 150
+				}
+				
+				if(y > $('.all').height() - 150){
+					y=$('.all').height() - 150
+				}
+				$('.all span').css({left:x+'px',top:y+'px'}) //新框架只能加px
+				
+				
+				var fangdax=-x * 800/350
+				var fangday=-y * 800/350
+
+				$('.big').css('background-position',fangdax+'px '+fangday+'px')
+				
+        });
+		
+    }).mouseout(function(e){
+		$('.all span,.all .big').hide()
+    });
+	
+	
+	
+})
+</script>
+</head>
+
+<body>
+<div class="all">
+	<span></span>
+    <div class="big"></div>
+</div>
+</body>
+</html>

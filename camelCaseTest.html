@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>无标题文档</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 0;
+        }
+
+    </style>
+
+    <script src="itcast.js"></script>
+    <script src="itcast.animate.js"></script>
+
+
+</head>
+
+<body>
+<div id='box'>aaa</div>
+
+<script>
+    var camelCase= function (str) {
+        return str.replace(/\-(\w)/g, function (all, letter,pos,ori) {
+            console.log(all);
+            console.log(letter);
+            console.log(pos);
+            console.log(ori);
+            return letter.toUpperCase();
+        });
+    }
+
+    var s="aaa-aaa";
+    console.log(camelCase(s));
+</script>
+</body>
+</html>

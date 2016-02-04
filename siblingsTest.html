@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>无标题文档</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 0;
+        }
+
+    </style>
+
+    <script src="itcast.js"></script>
+    <script src="itcast.animate.js"></script>
+
+</head>
+
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+
+<script>
+//    $("ul li").eq(1).fadeOut().siblings().fadeIn()
+    $("ul li").eq(0).fadeIn().siblings().fadeOut()
+    好像错误的原因是 css永远读取了this[0] 的css 开始应用于所有的动画
+</script>
+</body>
+</html>

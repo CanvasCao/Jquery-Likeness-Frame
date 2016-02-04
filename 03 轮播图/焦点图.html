@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>无标题文档</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        .all {
+            width: 650px;
+            height: 250px;
+            background: yellow;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .all ul {
+            position: relative;
+            z-index: 1;
+        }
+
+        .all ul li {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .all ol {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            z-index: 2;
+        }
+
+        .all ol li {
+            width: 20px;
+            height: 20px;
+            background: #333;
+            border: 1px solid #ccc;
+            float: left;
+            line-height: 20px;
+            text-align: center;
+            color: #999;
+            margin-left: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .all ol .current {
+            width: 30px;
+            height: 30px;
+            background: #333;
+            color: #f60;
+            border: 1px solid #f60;
+            font-size: 20px;
+            line-height: 30px;
+            margin-top: -10px;
+        }
+    </style>
+    <script src="../itcast.js"></script>
+    <script src="../itcast.animate2.js"></script>
+    <!--<script type="text/javascript" src="jquery-1.7.2.min.js"></script>-->
+
+    <script type="text/javascript">
+        $(function () {
+
+            //事件模块
+            var mytop = 100;
+            $('.all ol li').mouseover(function (e) {
+                mytop++
+                //角标的工作应用类样式;
+                $(this).addClass('current').siblings().removeClass()
+
+                //图片的工作跟角标对应显示；
+                var index = $(this).index();
+                $('.all ul li').eq(index).css({left: '650px', 'z-index': mytop}).animate({left: 0}, 500)
+                num = index;
+            });
+
+            //自动播放模块
+            var timer = null;
+            var num = 4;
+            timer = setInterval(autoplay, 2000)
+            function autoplay() {
+                mytop++
+                num++
+                if (num > 4) {
+                    num = 0
+                }
+                $('.all ol li').eq(num).addClass('current').siblings().removeClass();
+                $('.all ul li').eq(num).css({left: '650px', 'z-index': mytop}).animate({left: 0}, 500)
+            }
+
+            //鼠标移上停止定时器模块
+            $('.all').hover(function (e) {
+                //停止自动播放，清除定时器；
+                clearInterval(timer)
+            }, function (e) {
+                clearInterval(timer)
+                timer = setInterval(autoplay, 2000)
+            });
+        })
+    </script>
+</head>
+
+<body>
+<div class="all">
+    <ul>
+        <li><img src="img/01.jpg" width="650" height="250"></li>
+        <li><img src="img/02.jpg" width="650" height="250"></li>
+        <li><img src="img/03.jpg" width="650" height="250"></li>
+        <li><img src="img/04.jpg" width="650" height="250"></li>
+        <li><img src="img/05.jpg" width="650" height="250"></li>
+
+    </ul>
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li class="current">5</li>
+    </ol>
+</div>
+</body>
+</html>

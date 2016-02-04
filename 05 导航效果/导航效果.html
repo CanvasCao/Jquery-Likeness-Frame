@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+*{ padding:0; margin:0; list-style:none; border:0;}
+body{ background:#f5f5f5;}
+.all{ width:752px; height:270px; border:1px solid #ccc; margin:100px auto; padding:10px 0 0 10px}
+.all li{ width:178px; height:125px; float:left; margin:0 10px 10px 0; position:relative; cursor:pointer; overflow:hidden;}
+.all li div{ position:absolute; width:178px; height:24px; background:#000; text-align:center; line-height:24px; z-index:1; bottom:-24px; left:0;}
+.all li p{ position:absolute; width:178px; height:24px; text-align:center; line-height:24px; z-index:2; color:#fff; font-size:14px; bottom:-24px; left:0; background:url(images/bg.png) no-repeat 0 0;}
+</style>
+
+<script src="../itcast.js"></script>
+<script src="../itcast.animate2.js"></script>
+<!--<script src="../jquery-1.7.js"></script>-->
+<script type="text/javascript">
+$(function(){
+	$('.all div').fadeTo(0,0.5)
+	
+	$('.all p').each(function(index, element) {
+		var num=index*-24
+        $(element).css('background-position','0 '+num+'px')
+    });
+	
+	$('.all li').hover(function(e) {
+        $(this).children('div,p').animate({bottom:0},200)
+    },function(){
+        $(this).children('div,p').animate({bottom:-24},200)
+    });
+	
+})
+</script>
+</head>
+
+<body>
+<div class="all">
+	<ul>
+		<li>
+   	    	<img src="images/01.JPG" width="178" height="125">
+            <div></div>
+            <p>百度一下，你就知道</p>
+        </li>
+		<li>
+   	    	<img src="images/02.JPG" width="178" height="125">
+            <div></div>
+            <p>百度一下，你就知道</p>
+        </li>
+		<li>
+   	    	<img src="images/03.JPG" width="178" height="125">
+            <div></div>
+            <p>百度一下，你就知道</p>
+        </li>
+		<li>
+   	    	<img src="images/04.JPG" width="178" height="125">
+            <div></div>
+            <p>百度一下，你就知道</p>
+        </li>
+		<li>
+   	    	<img src="images/05.JPG" width="178" height="125">
+            <div></div>
+            <p>百度一下，你就知道</p>
+        </li>
+		<li>
+   	    	<img src="images/06.JPG" width="178" height="125">
+            <div></div>
+            <p>百度一下，你就知道</p>
+        </li>
+		<li>
+   	    	<img src="images/07.JPG" width="178" height="125">
+            <div></div>
+            <p>百度一下，你就知道</p>
+        </li>
+		<li>
+   	    	<img src="images/08.JPG" width="178" height="125">
+            <div></div>
+            <p>百度一下，你就知道</p>
+        </li>
+	</ul>
+</div>
+</body>
+</html>

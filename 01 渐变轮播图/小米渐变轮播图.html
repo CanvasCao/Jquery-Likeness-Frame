@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>无标题文档</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        .all {
+            width: 992px;
+            height: 420px;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .all ul {
+            position: relative;
+            /*z-index: 1;*/
+        }
+
+        .all ul li {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .all ul .current {
+            /*z-index: 10;*/
+        }
+
+        .all ol {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            /*z-index: 2;*/
+        }
+
+        .all ol li {
+            width: 30px;
+            height: 20px;
+            border: 1px solid #ccc;
+            float: left;
+            line-height: 20px;
+            text-align: center;
+            color: #000;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .all ol .current {
+            background: #f60;
+        }
+
+        .all span{
+            position: absolute;
+            border: 1px solid #000;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .left{
+            left: 20px;
+            top: 200px;
+        }
+        .right{
+            right:20px;
+            top: 200px;
+        }
+    </style>
+
+    <script src="../itcast.js"></script>
+    <script src="../itcast.animate2.js"></script>
+    <!--<script src="../jquery-1.7.js"></script>-->
+
+    <script type="text/javascript">
+        $(function () {
+            var index = 0; //顺序
+            var timer = null;
+
+            //数字角标
+            $('.all ol li').click(function (e) {
+                //角标
+                $(this).addClass('current').siblings().removeClass()
+                //图片
+                index = $(this).index();//索引
+                $('.all ul li').eq(index).fadeIn().siblings().fadeOut()
+
+            });
+
+            //箭头工作
+            $('.right').click(function (e) {
+                index++;
+                index=index>4?0:index;
+                $('.all ol li').eq(index).addClass('current').siblings().removeClass();
+                $('.all ul li').eq(index).fadeIn().siblings().fadeOut()
+            });
+
+
+            //自动播放模块
+            timer = setInterval(autoplay, 2000)
+            function autoplay() {
+                index++;
+                index=index>4?0:index;
+                $('.all ol li').eq(index).addClass('current').siblings().removeClass();
+                $('.all ul li').eq(index).fadeIn().siblings().fadeOut()
+            }
+
+            //鼠标移上停止定时器模块
+            $('.all').hover(function (e) {
+                //停止自动播放，清除定时器；
+                clearInterval(timer)
+            }, function (e) {
+                clearInterval(timer)
+                timer = setInterval(autoplay, 2000)
+            });
+
+        })
+    </script>
+</head>
+
+<body>
+<div class="all">
+    <ul>
+        <li><img src="img/images/1.jpg" width="992" height="420"></li>
+        <li><img src="img/images/2.jpg" width="992" height="420"></li>
+        <li><img src="img/images/3.jpg" width="992" height="420"></li>
+        <li><img src="img/images/4.jpg" width="992" height="420"></li>
+        <li><img src="img/images/5.jpg" width="992" height="420"></li>
+    </ul>
+    <ol>
+        <li class="current">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+    <span class="left"><</span>
+    <span class="right">></span>
+</div>
+</body>
+</html>

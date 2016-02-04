@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>无标题文档</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        div{
+            background-color: red;
+            opacity: 50;
+        }
+    </style>
+
+    <script src="itcast.js"></script>
+    <script src="itcast.animate2.js"></script>
+    <script src='jquery-1.7.js'></script>
+</head>
+
+<body>
+<div id='box'>aaa</div>
+<div class='box'>aaa</div>
+<div class='box'>aaa</div>
+<div class='box'>aaa</div>
+<div class='box'>aaa</div>
+
+<script>
+//    $('#box').append("<a>aaa</a>").css('backgroundColor',"red")
+$('.box').fadeOut()
+</script>
+</body>
+</html>

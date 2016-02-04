@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>无标题文档</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        .all {
+            width: 249px;
+            height: 248px;
+            border: 1px solid #edafab;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        .all ol {
+            width: 48px;
+            float: left;
+            border-right: 1px solid #edafab;
+        }
+
+        .all ol li {
+            height: 27px;
+            background: #fcf2f1;
+            border-bottom: 1px solid #edafab;
+            font-size: 12px;
+            line-height: 27px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .all ol .current {
+            background: url(images/taobao/abg.gif);
+        }
+
+        .all ul {
+            float: left;
+        }
+    </style>
+    <script src="../itcast.js"></script>
+    <script src="../itcast.animate2.js"></script>
+    <!--<script src="../jquery-1.7.js"></script>-->
+
+    <script type="text/javascript">
+        $(function () {
+            $('.all ol li').mouseover(function (e) {
+                var index = $(this).index();
+
+                //先角标
+                $(this).addClass('current').siblings().removeClass();
+                //后图片
+                $('.all ul li').eq(index).show().siblings().hide();
+                num = index
+            });
+
+            //制作一个定时器去实现自动播放功能； 定时器模块
+            var timer = null;
+            var num = 0;
+            timer = setInterval(autoplay, 2000)
+            function autoplay() {
+                num++
+                if (num > 8) {
+                    num = 0
+                }
+                $('.all ol li').eq(num).addClass('current').siblings().removeClass();//角标
+                $('.all ul li').eq(num).show().siblings().hide();
+            }
+
+
+            //鼠标移上停止定时器模块
+            $('.all').hover(function (e) {
+                //停止自动播放，清除定时器；
+                clearInterval(timer)
+            }, function (e) {
+                clearInterval(timer)
+                timer = setInterval(autoplay, 2000)
+            });
+
+
+        })
+    </script>
+</head>
+
+<body>
+<div class="all">
+    <ol>
+        <li class="current">女靴</li>
+        <li>雪地靴</li>
+        <li>冬裙</li>
+        <li>呢大衣</li>
+        <li>毛衣</li>
+        <li>棉服</li>
+        <li>女裤</li>
+        <li>羽绒服</li>
+        <li>牛仔裤</li>
+    </ol>
+    <ul>
+        <li><img src="images/taobao/女靴.jpg" width="200" height="250"></li>
+        <li><img src="images/taobao/雪地靴.jpg" width="200" height="250"></li>
+        <li><img src="images/taobao/冬裙.jpg" width="200" height="250"></li>
+        <li><img src="images/taobao/呢大衣.jpg" width="200" height="250"></li>
+        <li><img src="images/taobao/毛衣.jpg" width="200" height="250"></li>
+        <li><img src="images/taobao/棉服.jpg" width="200" height="250"></li>
+        <li><img src="images/taobao/女裤.jpg" width="200" height="250"></li>
+        <li><img src="images/taobao/羽绒服.jpg" width="200" height="250"></li>
+        <li><img src="images/taobao/牛仔裤.jpg" width="200" height="250"></li>
+    </ul>
+</div>
+</body>
+</html>

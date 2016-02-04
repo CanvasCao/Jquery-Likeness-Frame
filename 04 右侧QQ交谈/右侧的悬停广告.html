@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+*{ padding:0; margin:0; list-style:none; border:0;}
+.all{ width:131px; height:311px; position:fixed; right:-131px; top:50%; margin-top:-155px;}
+.all span{ position:absolute; left:-29px; top:50%; margin-top:-58px; cursor:pointer;}
+</style>
+	<script  src="../itcast.js"></script>
+	<script  src="../itcast.animate2.js"></script>
+<script type="text/javascript">
+$(function(){
+	
+	var bl=true;
+	$('.all span').click(function(e) {
+		//如果能判断是折叠还是展开即可；
+		if( bl==true ){
+			
+			$('.all').animate({right:0},300);
+			$(this).children().attr('src','images/img/qqLOpen.jpg')
+			bl=false
+			
+		}else{
+			
+			$('.all').animate({right:-131},300);
+			$(this).children().attr('src','images/img/qqL.jpg')
+			bl=true
+			
+		}
+    });
+})
+</script>
+</head>
+
+<body>
+<div class="all">
+	<span><img src="images/img/qqL.jpg" width="29" height="117"></span>
+	<img src="images/img/qq.jpg" width="131" height="311"> 
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+</body>
+</html>
